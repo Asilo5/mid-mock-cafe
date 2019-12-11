@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import { getReservations } from '../../apiCalls';
+
 import Form from '../Form/Form';
 import ReservationsContainer from '../ReservationsContainer/ReservationsContainer';
 
@@ -7,9 +9,18 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-       guestInfo : {}
+       totalReservations: [],
+       guestInfo : {},
+       error: ''
     }
   }
+
+  componentDidMount = () => {
+    getReservations()
+      .then(data => console.log(data))
+      .catch(err => console.log(err))
+  }
+
 
   addGuestInfo = (guestInfo) => {
     this.setState({
