@@ -10,6 +10,12 @@ class App extends Component {
     }
   }
 
+  addGuestInfo = (guestInfo) => {
+    this.setState({
+      guestInfo
+    })
+  }
+
   render() {
     return (
       <div className="App">
