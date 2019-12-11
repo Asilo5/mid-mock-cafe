@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReservationsContaner should match wrapper with all information passing through correctly 1`] = `
+<section
+  className="reservations-container"
+>
+  <Reservation
+    date="11/20"
+    id={1}
+    key="1"
+    name="bob"
+    number={1}
+    removeReservations={[MockFunction]}
+    time="11;30"
+  />
+</section>
+`;
