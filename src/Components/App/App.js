@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Form from '../Form/Form';
 
 class App extends Component {
   render() {
@@ -7,7 +8,7 @@ class App extends Component {
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-
+          <Form />
         </div>
         <div className='resy-container'>
           
