@@ -10,7 +10,7 @@ class App extends Component {
     super();
     this.state = {
        totalReservations: [],
-       guestInfo : {},
+      //  guestInfo : {},
        error: ''
     }
   }
@@ -21,9 +21,9 @@ class App extends Component {
       .catch(err => this.setState({ error: err.message }))
   }
 
-  addReservations = () => {
-    const { guestInfo, totalReservations } = this.state;
-    postReservation(guestInfo)
+  addReservations = (guest) => {
+    const { totalReservations } = this.state;
+    postReservation(guest)
       .then(reservation => this.setState({ totalReservations: [...totalReservations, reservation] }))
       .catch(err => this.setState({ error: err.message }))
   }
@@ -34,17 +34,17 @@ class App extends Component {
     .catch(err => this.setState({ error: err.message }))
   }
 
-  addGuestInfo = ({name, date, time, number}) => {
-    this.setState({
-      guestInfo: {
-        name,
-        date,
-        time,
-        number: parseInt(number)
-      }
-    })
-    this.addReservations();
-  }
+  // addGuestInfo = ({name, date, time, number}) => {
+  //   this.setState({
+  //     guestInfo: {
+  //       name,
+  //       date,
+  //       time,
+  //       number: parseInt(number)
+  //     }
+  //   })
+  //   // this.addReservations();
+  // }
 
   render() {
     const { totalReservations } = this.state;
@@ -52,10 +52,10 @@ class App extends Component {
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-          <Form addGuestInfo={this.addGuestInfo} />
+          <Form addGuestInfo={this.addGuestInfo} addReservations={this.addReservations} />
         </div>
         <div className='resy-container'>
-          <ReservationsContainer totalReservations={totalReservations} removeReservations={this.removeReservations} />
+          <ReservationsContainer totalReservations={totalReservations} removeReservations={this.removeReservations}/>
         </div>
       </div>
     )
