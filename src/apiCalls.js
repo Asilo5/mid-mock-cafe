@@ -25,3 +25,20 @@ export const postReservation = (guestInfo) => {
       return resp.json();
   })
 }
+
+export const deleteReservation = (id) => {
+    const options = {
+        method:'DELETE',
+        headers: {
+            'Content-Type' : 'application/json'
+        }
+    };
+
+    return fetch(`http://localhost:3001/api/v1/reservations/${id}`, options)
+    .then(resp => {
+        if(!resp.ok) {
+            throw Error('Could not Post reservation');
+        }
+        return resp.json();
+    })
+}

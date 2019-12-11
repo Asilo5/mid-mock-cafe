@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getReservations, postReservation } from '../../apiCalls';
+import { getReservations, postReservation, deleteReservation } from '../../apiCalls';
 
 import Form from '../Form/Form';
 import ReservationsContainer from '../ReservationsContainer/ReservationsContainer';
@@ -25,7 +25,13 @@ class App extends Component {
     const { guestInfo, totalReservations } = this.state;
     postReservation(guestInfo)
       .then(reservation => this.setState({ totalReservations: [...totalReservations, reservation] }))
-      .catch(err => console.log(err.message))
+      .catch(err => this.setState({ error: err.message }))
+  }
+
+  removeReservations = (id) => {
+    deleteReservation(id)
+    .then(reservation => console.log(reservation))
+    .catch(err => this.setState({ error: err.message }))
   }
 
   addGuestInfo = ({name, date, time, number}) => {
