@@ -4,6 +4,7 @@
      constructor() {
          super();
          this.state = {
+           id: Date.now(),
            name: '',
            date: '',
            time: '',
