@@ -7,7 +7,7 @@
            name: '',
            date: '',
            time: '',
-           guests: ''
+           number: 0
          }
      }
 
@@ -27,7 +27,7 @@
            name: '',
            date: '',
            time: '',
-           guests: ''
+           number: 0
          })
      }
 
@@ -50,9 +50,9 @@
                         value={this.state.time}
                         onChange={(e) => this.handleChange(e)} />
                  <input placeholder='Number of Guests' 
-                        type='text'
-                        name='guests'
-                        value={this.state.guests}
+                        type='number'
+                        name='number'
+                        value={this.state.number}
                         onChange={(e) => this.handleChange(e)} />
                  <button onClick={(e) => this.sendGuestInfo(e)}>Make Reservation</button>
              </form>
