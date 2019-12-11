@@ -7,7 +7,7 @@
            name: '',
            date: '',
            time: '',
-           guests: ''
+           guests: 0
          }
      }
 
@@ -27,7 +27,7 @@
            name: '',
            date: '',
            time: '',
-           guests: ''
+           guests: 0
          })
      }
 
@@ -50,7 +50,7 @@
                         value={this.state.time}
                         onChange={(e) => this.handleChange(e)} />
                  <input placeholder='Number of Guests' 
-                        type='text'
+                        type='number'
                         name='guests'
                         value={this.state.guests}
                         onChange={(e) => this.handleChange(e)} />
