@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reservation should match wrapper with all information passing through correctly 1`] = `
+<section
+  className="reservation"
+>
+  <h2>
+    bob
+  </h2>
+  <p>
+    11/22
+  </p>
+  <p>
+    7:30
+  </p>
+  <p>
+    Number of guests: 
+    5
+     
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Cancel
+  </button>
+</section>
+`;
