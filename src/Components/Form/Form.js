@@ -7,7 +7,7 @@
            name: '',
            date: '',
            time: '',
-           guests: '',
+           guests: ''
          }
      }
 
@@ -15,7 +15,21 @@
        this.setState({ [e.target.name] : e.target.value })
      }
 
-     
+     sendGuestInfo = (e) => {
+       e.preventDefault();
+       const { addGuestInfo } = this.props;
+       addGuestInfo(this.state);
+       this.clearInputs();
+     }
+
+     clearInputs = () => {
+         this.setState({
+           name: '',
+           date: '',
+           time: '',
+           guests: ''
+         })
+     }
 
      render() {
          return (
@@ -40,7 +54,7 @@
                         name='guests'
                         value={this.state.guests}
                         onChange={(e) => this.handleChange(e)} />
-                 <button>Make Reservation</button>
+                 <button onClick={(e) => this.sendGuestInfo(e)}>Make Reservation</button>
              </form>
          )
      }
