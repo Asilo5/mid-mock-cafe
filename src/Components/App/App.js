@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import { getReservations } from '../../apiCalls';
+
 import Form from '../Form/Form';
 import ReservationsContainer from '../ReservationsContainer/ReservationsContainer';
 
@@ -7,9 +9,18 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-       guestInfo : {}
+       totalReservations: [],
+       guestInfo : {},
+       error: ''
     }
   }
+
+  componentDidMount = () => {
+    getReservations()
+      .then(reservations => this.setState({ totalReservations: reservations }))
+      .catch(err => this.setState({ error: err.message }))
+  }
+
 
   addGuestInfo = (guestInfo) => {
     this.setState({
@@ -18,6 +29,7 @@ class App extends Component {
   }
 
   render() {
+    const { totalReservations } = this.state;
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
@@ -25,7 +37,7 @@ class App extends Component {
           <Form addGuestInfo={this.addGuestInfo} />
         </div>
         <div className='resy-container'>
-          <ReservationsContainer />
+          <ReservationsContainer totalReservations={totalReservations}/>
         </div>
       </div>
     )
