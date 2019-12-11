@@ -34,18 +34,6 @@ class App extends Component {
     .catch(err => this.setState({ error: err.message }))
   }
 
-  // addGuestInfo = ({name, date, time, number}) => {
-  //   this.setState({
-  //     guestInfo: {
-  //       name,
-  //       date,
-  //       time,
-  //       number: parseInt(number)
-  //     }
-  //   })
-  //   // this.addReservations();
-  // }
-
   render() {
     const { totalReservations } = this.state;
     return (
