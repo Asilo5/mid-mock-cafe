@@ -10,7 +10,7 @@ export const getReservations = () => {
 
 export const postReservation = (guestInfo) => {
   const options = {
-      method: 'POSTS',
+      method: 'POST',
       body: JSON.stringify(guestInfo),
       headers: {
           'Content-Type' : 'application/json'
@@ -22,6 +22,6 @@ export const postReservation = (guestInfo) => {
       if(!resp.ok) {
           throw Error('Could not Post reservation');
       }
-      return resp.json()
+      return resp.json();
   })
 }

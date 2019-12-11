@@ -4,11 +4,10 @@
      constructor() {
          super();
          this.state = {
-           id: Date.now(),
            name: '',
            date: '',
            time: '',
-           guests: 0
+           number: 0
          }
      }
 
@@ -28,7 +27,7 @@
            name: '',
            date: '',
            time: '',
-           guests: 0
+           number: 0
          })
      }
 
@@ -52,8 +51,8 @@
                         onChange={(e) => this.handleChange(e)} />
                  <input placeholder='Number of Guests' 
                         type='number'
-                        name='guests'
-                        value={this.state.guests}
+                        name='number'
+                        value={this.state.number}
                         onChange={(e) => this.handleChange(e)} />
                  <button onClick={(e) => this.sendGuestInfo(e)}>Make Reservation</button>
              </form>

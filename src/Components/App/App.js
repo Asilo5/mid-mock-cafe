@@ -22,21 +22,28 @@ class App extends Component {
   }
 
   addReservations = () => {
-    const { guestInfo } = this.state;
+    const { guestInfo, totalReservations } = this.state;
     postReservation(guestInfo)
-      .then(reservation => console.log(reservation))
-      .catch(err => console.log(err))
+      .then(reservation => this.setState({ totalReservations: [...totalReservations, reservation] }))
+      .catch(err => console.log(err.message))
   }
 
-  addGuestInfo = (guestInfo) => {
+  addGuestInfo = ({name, date, time, number}) => {
     this.setState({
-      guestInfo
+      guestInfo: {
+        name,
+        date,
+        time,
+        number: parseInt(number)
+      }
     })
     this.addReservations();
   }
 
   render() {
-    const { totalReservations } = this.state;
+    const { totalReservations, guestInfo } = this.state;
+    console.log(totalReservations)
+    console.log(guestInfo)
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
