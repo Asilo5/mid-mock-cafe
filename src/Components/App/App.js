@@ -29,6 +29,7 @@ class App extends Component {
   }
 
   render() {
+    const { totalReservations } = this.state;
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
@@ -36,7 +37,7 @@ class App extends Component {
           <Form addGuestInfo={this.addGuestInfo} />
         </div>
         <div className='resy-container'>
-          <ReservationsContainer />
+          <ReservationsContainer totalReservations={totalReservations}/>
         </div>
       </div>
     )
