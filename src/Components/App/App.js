@@ -22,7 +22,8 @@ class App extends Component {
   }
 
   addReservations = () => {
-    postReservation()
+    const { guestInfo } = this.state;
+    postReservation(guestInfo)
       .then(reservation => console.log(reservation))
       .catch(err => console.log(err))
   }
@@ -31,6 +32,7 @@ class App extends Component {
     this.setState({
       guestInfo
     })
+    this.addReservations();
   }
 
   render() {
