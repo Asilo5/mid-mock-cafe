@@ -30,7 +30,7 @@ class App extends Component {
 
   removeReservations = (id) => {
     deleteReservation(id)
-    .then(reservation => console.log(reservation))
+    .then(reservation => this.setState({ totalReservations: reservation }))
     .catch(err => this.setState({ error: err.message }))
   }
 
@@ -55,7 +55,7 @@ class App extends Component {
           <Form addGuestInfo={this.addGuestInfo} />
         </div>
         <div className='resy-container'>
-          <ReservationsContainer totalReservations={totalReservations}/>
+          <ReservationsContainer totalReservations={totalReservations} removeReservations={this.removeReservations} />
         </div>
       </div>
     )
