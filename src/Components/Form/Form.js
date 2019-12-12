@@ -13,14 +13,13 @@
 
      handleChange = (e) => {
        this.setState({ [e.target.name] : e.target.value })
-       this.setState({ number : e.target.value })
+       this.setState({ number : parseInt(e.target.value) })
      }
 
      sendGuestInfo = (e) => {
        e.preventDefault();
-       const { addGuestInfo, addReservations } = this.props;
-      //  addGuestInfo(this.state);
-
+       const { addReservations } = this.props;
+  
        addReservations(this.state);
        this.clearInputs();
      }
