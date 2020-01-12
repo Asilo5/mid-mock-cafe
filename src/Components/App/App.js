@@ -10,7 +10,6 @@ class App extends Component {
     super();
     this.state = {
        totalReservations: [],
-      //  guestInfo : {},
        error: ''
     }
   }
@@ -33,18 +32,6 @@ class App extends Component {
     .then(reservation => this.setState({ totalReservations: reservation }))
     .catch(err => this.setState({ error: err.message }))
   }
-
-  // addGuestInfo = ({name, date, time, number}) => {
-  //   this.setState({
-  //     guestInfo: {
-  //       name,
-  //       date,
-  //       time,
-  //       number: parseInt(number)
-  //     }
-  //   })
-  //   // this.addReservations();
-  // }
 
   render() {
     const { totalReservations } = this.state;
